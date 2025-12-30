@@ -1,0 +1,23 @@
+.audio-player {
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.audio-player .progress {
+  height: 6px;
+  cursor: pointer;
+}
+
+.audio-player .progress:hover {
+  height: 8px;
+}
+
+.audio-player button {
+  min-width: 50px;
+  border-radius: 50%;
+}
+
+.audio-player small {
+  font-size: 0.8rem;
+}
