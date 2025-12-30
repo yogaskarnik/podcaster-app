@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDebounce } from '../hooks/usePerformance';
 
 const SearchBar = ({ onSearch, loading }) => {
   const [query, setQuery] = useState('');
+  const debouncedQuery = useDebounce(query, 300);
+
+  useEffect(() => {
+    if (debouncedQuery.trim()) {
+      onSearch(debouncedQuery.trim());
+    }
+  }, [debouncedQuery, onSearch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,4 +41,4 @@ const SearchBar = ({ onSearch, loading }) => {
   );
 };
 
-export default SearchBar;
+export default React.memo(SearchBar);
